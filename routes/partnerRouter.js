@@ -1,12 +1,7 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-
 const partnerRouter = express.Router();
 
-partnerRouter.use(bodyParser.json());
-
-partnerRouter
-  .route('/')
+partnerRouter.route('/')
   .all((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
@@ -28,8 +23,7 @@ partnerRouter
     res.end(`Deleting all partners`);
   });
 
-partnerRouter
-  .route('/:partnerId')
+partnerRouter.route('/:partnerId')
   .all((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');

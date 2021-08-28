@@ -1,12 +1,7 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-
 const campsiteRouter = express.Router();
 
-campsiteRouter.use(bodyParser.json());
-
-campsiteRouter
-  .route('/')
+campsiteRouter.route('/')
   .all((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
@@ -28,8 +23,7 @@ campsiteRouter
     res.end(`Deleting all campsites`);
   });
 
-campsiteRouter
-  .route('/:campsiteId')
+campsiteRouter.route('/:campsiteId')
   .all((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
